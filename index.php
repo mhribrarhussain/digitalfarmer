@@ -1,0 +1,360 @@
+<?php session_start(); ?>
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Digital Farmer - Homepage</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@400,FILL@0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#4CAF50",
+                        "background-light": "#F5F5DC",
+                        "background-dark": "#102210",
+                    },
+                    fontFamily: {
+                        "display": ["Work Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-[#333333] dark:text-gray-200">
+<div class="relative flex min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+<div class="layout-container flex h-full grow flex-col">
+<!-- TopNavBar -->
+<header class="sticky top-0 z-50 flex items-center justify-between whitespace-nowrap border-b border-solid border-primary/20 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-sm px-4 md:px-10 lg:px-20 py-3">
+<div class="flex items-center gap-4 text-primary">
+<span class="material-symbols-outlined text-3xl">grass</span>
+<h2 class="text-[#333333] dark:text-white text-xl font-bold leading-tight tracking-[-0.015em]">Digital Farmer</h2>
+</div>
+<div class="hidden md:flex flex-1 justify-center gap-8">
+<div class="flex items-center gap-9">
+<a class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-primary/90" href="index.php">Home</a>
+<a class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-primary/90" href="marketplace.php">Marketplace</a>
+<a class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-primary/90" href="about.php">About Us</a>
+
+</div>
+</div>
+<div class="flex gap-2">
+    <a id="nav-register" href="#" class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-primary/90" aria-haspopup="dialog" aria-controls="signup-modal">
+        <span class="truncate">Register</span>
+    </a>
+    <a id="nav-login" href="#" class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-primary/90" aria-haspopup="dialog" aria-controls="login-modal">
+        <span class="truncate">Login</span>
+    </a>
+</div>
+</header>
+<main class="flex flex-col items-center">
+<div class="layout-content-container flex flex-col w-full max-w-6xl px-4">
+<!-- HeroSection -->
+<section class="py-10 md:py-20 @container">
+<div class="@[480px]:p-4">
+<div class="flex min-h-[480px] flex-col gap-6 bg-cover bg-center bg-no-repeat @[480px]:gap-8 @[480px]:rounded-xl items-center justify-center p-8 text-center" data-alt="A vibrant, sunlit farm field with rows of fresh green crops under a clear blue sky." style='background-image: linear-gradient(rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.5) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuBLQ9V7UptBZzN4lMfIJ9R12RYpMtKy_cO15yter4XtqEPn-GMMNXRL46I5z4sFJQWMwgXKxkaogEm0gKiSxXRd1GTJ3_C4BFuEZqUx39VYyJoIBh_Fcb2ya_yiuEFkoYt7kQzPtH25qzEJ7BRnTvDC77-k2TAduJYrR1Qgh36i6tzlsMWURZX5eNvsiqzpBzk1F4xW3ce27tqfxheA42UhxMSIbtO4qtrl4ez_1DAp6LP6SkMsGsfbWLpTqQBlKzvQExNS5zicrUg");'>
+<div class="flex flex-col gap-4">
+<h1 class="text-white text-4xl font-black leading-tight tracking-[-0.033em] @[480px]:text-6xl">
+                                        Connecting Fields to Your Table
+                                    </h1>
+<h2 class="text-white text-base font-normal leading-normal @[480px]:text-lg max-w-3xl mx-auto">
+                                        The freshest produce, direct from local farmers to you. Join our community and rediscover the taste of real food.
+                                    </h2>
+</div>
+<div class="flex-wrap gap-3 flex justify-center">
+<a href="consumer_registration.php" class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-5 bg-primary text-white text-base font-bold leading-normal tracking-[0.015em] hover:bg-primary/90">
+<span class="truncate">Find Fresh Produce</span>
+</a>
+<a href="farmer_registration.php" class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-5 bg-white dark:bg-gray-200 text-[#333333] text-base font-bold leading-normal tracking-[0.015em] hover:bg-gray-100 dark:hover:bg-gray-300">
+<span class="truncate">Sell Your Products</span>
+</a>
+</div>
+</div>
+</div>
+</section>
+<!-- FeatureSection -->
+<section class="flex flex-col gap-10 px-4 py-16 @container">
+<div class="flex flex-col gap-4 text-center">
+<h2 class="text-[#333333] dark:text-white tracking-light text-3xl font-bold leading-tight @[480px]:text-4xl @[480px]:font-black max-w-[720px] mx-auto">
+                                Why Join Our Community?
+                            </h2>
+<p class="text-[#333333] dark:text-gray-300 text-base font-normal leading-normal max-w-[720px] mx-auto">
+                                Whether you're looking to buy the freshest local goods or sell your harvest to a wider audience, our platform is built for you.
+                            </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-0">
+<div class="flex flex-1 gap-3 rounded-lg border border-primary/20 bg-white dark:bg-background-dark/50 p-6 flex-col">
+<span class="material-symbols-outlined text-primary">spa</span>
+<div class="flex flex-col gap-1">
+<h3 class="text-[#333333] dark:text-white text-lg font-bold leading-tight">Fresh &amp; Local</h3>
+<p class="text-gray-600 dark:text-gray-400 text-sm font-normal leading-normal">Discover produce harvested at its peak, right in your neighborhood.</p>
+</div>
+</div>
+<div class="flex flex-1 gap-3 rounded-lg border border-primary/20 bg-white dark:bg-background-dark/50 p-6 flex-col">
+<span class="material-symbols-outlined text-primary">local_shipping</span>
+<div class="flex flex-col gap-1">
+<h3 class="text-[#333333] dark:text-white text-lg font-bold leading-tight">Direct from Farm</h3>
+<p class="text-gray-600 dark:text-gray-400 text-sm font-normal leading-normal">Know exactly where your food comes from by connecting with the farmer.</p>
+</div>
+</div>
+<div class="flex flex-1 gap-3 rounded-lg border border-primary/20 bg-white dark:bg-background-dark/50 p-6 flex-col">
+<span class="material-symbols-outlined text-primary">groups</span>
+<div class="flex flex-col gap-1">
+<h3 class="text-[#333333] dark:text-white text-lg font-bold leading-tight">Support Community</h3>
+<p class="text-gray-600 dark:text-gray-400 text-sm font-normal leading-normal">Every purchase supports local farmers and strengthens the community.</p>
+</div>
+</div>
+<div class="flex flex-1 gap-3 rounded-lg border border-primary/20 bg-white dark:bg-background-dark/50 p-6 flex-col">
+<span class="material-symbols-outlined text-primary">trending_up</span>
+<div class="flex flex-col gap-1">
+<h3 class="text-[#333333] dark:text-white text-lg font-bold leading-tight">Reach More Customers</h3>
+<p class="text-gray-600 dark:text-gray-400 text-sm font-normal leading-normal">Connect with a growing network of consumers actively seeking quality produce.</p>
+</div>
+</div>
+<div class="flex flex-1 gap-3 rounded-lg border border-primary/20 bg-white dark:bg-background-dark/50 p-6 flex-col">
+<span class="material-symbols-outlined text-primary">paid</span>
+<div class="flex flex-col gap-1">
+<h3 class="text-[#333333] dark:text-white text-lg font-bold leading-tight">Fair Pricing</h3>
+<p class="text-gray-600 dark:text-gray-400 text-sm font-normal leading-normal">Set your own prices and get the value your hard work deserves.</p>
+</div>
+</div>
+<div class="flex flex-1 gap-3 rounded-lg border border-primary/20 bg-white dark:bg-background-dark/50 p-6 flex-col">
+<span class="material-symbols-outlined text-primary">settings</span>
+<div class="flex flex-col gap-1">
+<h3 class="text-[#333333] dark:text-white text-lg font-bold leading-tight">Easy Management</h3>
+<p class="text-gray-600 dark:text-gray-400 text-sm font-normal leading-normal">A simple, intuitive dashboard to manage your listings and sales.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- How It Works Section -->
+<section class="py-16">
+<h2 class="text-[#333333] dark:text-white text-3xl font-bold leading-tight tracking-[-0.015em] px-4 pb-10 pt-5 text-center">How It Works</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8 px-4">
+<div class="flex flex-col items-center text-center">
+<div class="flex items-center justify-center size-16 rounded-full bg-primary/20 text-primary mb-4">
+<span class="material-symbols-outlined" style="font-size: 32px;">search</span>
+</div>
+<h3 class="text-[#333333] dark:text-white text-xl font-bold leading-normal mb-2">1. Search &amp; Discover</h3>
+<p class="text-gray-600 dark:text-gray-400 text-base font-normal leading-normal">Browse listings from local farmers or find interested buyers in your area.</p>
+</div>
+<div class="flex flex-col items-center text-center">
+<div class="flex items-center justify-center size-16 rounded-full bg-primary/20 text-primary mb-4">
+<span class="material-symbols-outlined" style="font-size: 32px;">chat</span>
+</div>
+<h3 class="text-[#333333] dark:text-white text-xl font-bold leading-normal mb-2">2. Connect Directly</h3>
+<p class="text-gray-600 dark:text-gray-400 text-base font-normal leading-normal">Communicate directly to arrange details, ask questions, and build relationships.</p>
+</div>
+<div class="flex flex-col items-center text-center">
+<div class="flex items-center justify-center size-16 rounded-full bg-primary/20 text-primary mb-4">
+<span class="material-symbols-outlined" style="font-size: 32px;">shopping_cart</span>
+</div>
+<h3 class="text-[#333333] dark:text-white text-xl font-bold leading-normal mb-2">3. Enjoy or Sell</h3>
+<p class="text-gray-600 dark:text-gray-400 text-base font-normal leading-normal">Complete your transaction and enjoy fresh, local food or a successful sale.</p>
+</div>
+</div>
+</section>
+<!-- Testimonials Section -->
+<section class="py-16">
+<div class="text-center mb-12">
+<h2 class="text-[#333333] dark:text-white text-3xl font-bold leading-tight tracking-[-0.015em]">From Our Community</h2>
+<p class="text-gray-600 dark:text-gray-400 mt-2 max-w-2xl mx-auto">Hear what our members have to say about their experience on AgriConnect.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<div class="bg-white dark:bg-background-dark/50 p-8 rounded-lg border border-primary/20">
+<p class="text-gray-700 dark:text-gray-300 italic mb-6">"Selling my produce through AgriConnect has been a game-changer. I've connected with so many wonderful local families and my sales have never been better. The platform is so easy to use!"</p>
+<div class="flex items-center">
+<img alt="Photo of a smiling farmer." class="w-12 h-12 rounded-full mr-4 object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCjXg_oa45tfkxRu-nLQrna4svh-iQ7GHuDWldYJ76BSASseoPqFb9gLsDfiYBRtMtbR74qVRb7eiZEvBWh3T8pBucFLAiOCR_g855RPBO8VDep_akOoBKrG3gjEW7W9a2dopc9xdRPTlWY8z4TlkW1k1dycOe-5ND_QsfsuH6i9Fp9l0wchsxeazhnb3vlme0sGHe_gisvT7N3PvN7NNXhfH44X0FGFuO_6cD4ev_7LRpTyHATYx9Jn8A9ixCDZgdn5VHp_WJAEz4"/>
+<div>
+<p class="font-bold text-[#333333] dark:text-white">Maria Sanchez</p>
+<p class="text-sm text-primary">Local Farmer</p>
+</div>
+</div>
+</div>
+<div class="bg-white dark:bg-background-dark/50 p-8 rounded-lg border border-primary/20">
+<p class="text-gray-700 dark:text-gray-300 italic mb-6">"I love knowing exactly where my food comes from. The quality of the vegetables and fruits is incredible, and I feel good supporting farmers in my own community. Highly recommend!"</p>
+<div class="flex items-center">
+<img alt="Photo of a happy consumer." class="w-12 h-12 rounded-full mr-4 object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBrYZwFQsIvlEs0QgQ_WdPQ_FrwuEbcKQEJOEgAQMarDhLdiu5Fac5J8yQk-Q1HzOOHgaYzl0Ii1ys58J3gPKJCflC-lbUq5C9GhtGmiQePyvJew501wCSiHuw5w62v1VgxIgVouGoT7Qi3z8n-NqK9wdNrnb47QqRX3xVdqVGgpa91vbHVyhSS_ryoDyjfXuOZxeyv3SBASLjeYVQwngWa4wD2XjIX3WXQUclKgMUhJZ4VQ2S_WX5-beJgnD6XOzp6Nzwe36oB83Q"/>
+<div>
+<p class="font-bold text-[#333333] dark:text-white">John Doe</p>
+<p class="text-sm text-primary">Happy Consumer</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Final CTA Section -->
+<section class="bg-primary/20 dark:bg-primary/30 rounded-lg my-16 p-12 text-center">
+<h2 class="text-3xl font-bold text-[#333333] dark:text-white mb-4">Ready to Join the Movement?</h2>
+<p class="text-gray-700 dark:text-gray-200 mb-8 max-w-2xl mx-auto">Become a part of a community that values fresh food, local economies, and direct connections. Sign up today!</p>
+<button id="signup-cta" class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-8 bg-primary text-white text-base font-bold leading-normal tracking-[0.015em] hover:bg-primary/90 mx-auto" type="button" aria-haspopup="dialog" aria-controls="signup-modal">
+<span class="truncate">Sign Up Now</span>
+</button>
+</section>
+
+<!-- Signup chooser modal -->
+<div id="signup-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center">
+    <div id="signup-overlay" class="absolute inset-0 bg-black/50 backdrop-blur-sm"></div>
+    <div role="dialog" aria-modal="true" aria-labelledby="signup-modal-title" class="relative z-10 w-full max-w-md mx-4 rounded-lg bg-white dark:bg-gray-900 shadow-xl">
+        <div class="p-4 border-b border-gray-100 dark:border-gray-800 flex justify-between items-center">
+            <h3 id="signup-modal-title" class="text-lg font-semibold text-gray-900 dark:text-white">Sign Up</h3>
+            <button id="signup-close" class="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white" aria-label="Close">✕</button>
+        </div>
+        <div class="p-6">
+            <p class="text-sm text-gray-600 dark:text-gray-300 mb-4">Choose your account type to continue:</p>
+            <div class="flex gap-3 flex-col sm:flex-row">
+                <a href="farmer_registration.php" class="flex-1 inline-flex items-center justify-center rounded-lg px-4 py-3 bg-green-600 text-white font-semibold hover:bg-green-700" id="signup-farmer">Farmer Registration</a>
+                <a href="consumer_registration.php" class="flex-1 inline-flex items-center justify-center rounded-lg px-4 py-3 bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-gray-100 font-semibold hover:bg-gray-200 dark:hover:bg-gray-700" id="signup-consumer">Consumer Registration</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Login chooser modal -->
+<div id="login-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center">
+    <div id="login-overlay" class="absolute inset-0 bg-black/50 backdrop-blur-sm"></div>
+    <div role="dialog" aria-modal="true" aria-labelledby="login-modal-title" class="relative z-10 w-full max-w-md mx-4 rounded-lg bg-white dark:bg-gray-900 shadow-xl">
+        <div class="p-4 border-b border-gray-100 dark:border-gray-800 flex justify-between items-center">
+            <h3 id="login-modal-title" class="text-lg font-semibold text-gray-900 dark:text-white">Log In</h3>
+            <button id="login-close" class="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white" aria-label="Close">✕</button>
+        </div>
+        <div class="p-6">
+            <p class="text-sm text-gray-600 dark:text-gray-300 mb-4">Choose your account type to continue:</p>
+            <div class="flex gap-3 flex-col sm:flex-row">
+                <a href="farmer_login.php" class="flex-1 inline-flex items-center justify-center rounded-lg px-4 py-3 bg-green-600 text-white font-semibold hover:bg-green-700" id="login-farmer">Farmer Login</a>
+                <a href="consumer_login.php" class="flex-1 inline-flex items-center justify-center rounded-lg px-4 py-3 bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-gray-100 font-semibold hover:bg-gray-200 dark:hover:bg-gray-700" id="login-consumer">Consumer Login</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-white dark:bg-background-dark/50 border-t border-primary/20 mt-auto">
+<div class="max-w-6xl mx-auto py-12 px-4">
+<div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+<div class="col-span-2 md:col-span-1">
+<div class="flex items-center gap-2 mb-4 text-primary">
+<span class="material-symbols-outlined">grass</span>
+<h2 class="text-[#333333] dark:text-white text-lg font-bold">Digital Farmer</h2>
+</div>
+<p class="text-sm text-gray-600 dark:text-gray-400">Connecting fields to your table.</p>
+</div>
+<div>
+<h3 class="font-bold text-[#333333] dark:text-white mb-4">Platform</h3>
+<ul class="space-y-2">
+<li><a class="text-sm text-gray-600 dark:text-gray-400 hover:text-primary" href="farmer_registration.php">For Farmers</a></li>
+<li><a class="text-sm text-gray-600 dark:text-gray-400 hover:text-primary" href="consumer_registration.php">For Consumers</a></li>
+</ul>
+</div>
+<div>
+<h3 class="font-bold text-[#333333] dark:text-white mb-4">Company</h3>
+<ul class="space-y-2">
+<li><a class="text-sm text-gray-600 dark:text-gray-400 hover:text-primary" href="about.php">About Us</a></li>
+<li><a class="text-sm text-gray-600 dark:text-gray-400 hover:text-primary" href="#">Contact</a></li>
+
+</ul>
+</div>
+<div>
+<h3 class="font-bold text-[#333333] dark:text-white mb-4">Legal</h3>
+<ul class="space-y-2">
+<li><a class="text-sm text-gray-600 dark:text-gray-400 hover:text-primary" href="#">Privacy Policy</a></li>
+<li><a class="text-sm text-gray-600 dark:text-gray-400 hover:text-primary" href="#">Terms of Service</a></li>
+</ul>
+</div>
+</div>
+<div class="mt-12 pt-8 border-t border-primary/20 text-center text-sm text-gray-500 dark:text-gray-400">
+<p>© 2024 AgriConnect. All rights reserved.</p>
+</div>
+</div>
+</footer>
+</div>
+</div>
+<script>
+    (function(){
+        const openBtn = document.getElementById('signup-cta');
+        const modal = document.getElementById('signup-modal');
+        const overlay = document.getElementById('signup-overlay');
+        const closeBtn = document.getElementById('signup-close');
+        const firstAction = document.getElementById('signup-farmer');
+
+        const navRegister = document.getElementById('nav-register');
+        const navLogin = document.getElementById('nav-login');
+
+        const loginModal = document.getElementById('login-modal');
+        const loginOverlay = document.getElementById('login-overlay');
+        const loginClose = document.getElementById('login-close');
+        const loginFirst = document.getElementById('login-farmer');
+
+        let lastFocus = null;
+
+        function showModal(){
+            lastFocus = document.activeElement;
+            modal.classList.remove('hidden');
+            // focus first action for keyboard users
+            setTimeout(()=> firstAction && firstAction.focus(), 50);
+            document.addEventListener('keydown', onKey);
+        }
+        function hideModal(){
+            modal.classList.add('hidden');
+            document.removeEventListener('keydown', onKey);
+            try{ lastFocus && lastFocus.focus(); }catch(e){}
+        }
+
+        function showLoginModal(){
+            lastFocus = document.activeElement;
+            // close signup if open
+            modal && modal.classList.add('hidden');
+            loginModal && loginModal.classList.remove('hidden');
+            setTimeout(()=> loginFirst && loginFirst.focus(), 50);
+            document.addEventListener('keydown', onKey);
+        }
+        function hideLoginModal(){
+            loginModal && loginModal.classList.add('hidden');
+            document.removeEventListener('keydown', onKey);
+            try{ lastFocus && lastFocus.focus(); }catch(e){}
+        }
+
+        function onKey(e){
+            if(e.key === 'Escape'){
+                hideModal();
+                hideLoginModal();
+            }
+        }
+
+        // Primary open button (CTA)
+        openBtn && openBtn.addEventListener('click', showModal);
+
+        // Header nav links
+        navRegister && navRegister.addEventListener('click', function(e){ e.preventDefault(); showModal(); });
+        navLogin && navLogin.addEventListener('click', function(e){ e.preventDefault(); showLoginModal(); });
+
+        // Signup modal controls
+        closeBtn && closeBtn.addEventListener('click', hideModal);
+        overlay && overlay.addEventListener('click', hideModal);
+
+        // Login modal controls
+        loginClose && loginClose.addEventListener('click', hideLoginModal);
+        loginOverlay && loginOverlay.addEventListener('click', hideLoginModal);
+    })();
+</script>
+</body></html>

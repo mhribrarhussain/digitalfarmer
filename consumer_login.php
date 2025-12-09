@@ -1,0 +1,125 @@
+<?php
+session_start();
+include 'db.php';
+
+$error = '';
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['login'])) {
+  $email = trim($_POST['email'] ?? '');
+  $password = $_POST['password'] ?? '';
+
+  $stmt = mysqli_prepare($conn, "SELECT id, fullname, email, password FROM consumers WHERE email = ? OR fullname = ?");
+  if ($stmt) {
+    mysqli_stmt_bind_param($stmt, 'ss', $email, $email);
+    mysqli_stmt_execute($stmt);
+    $res = mysqli_stmt_get_result($stmt);
+    if ($res && mysqli_num_rows($res) > 0) {
+      $row = mysqli_fetch_assoc($res);
+      if (password_verify($password, $row['password'])) {
+        $_SESSION['user_id'] = $row['id'];
+        $_SESSION['user_name'] = $row['fullname'];
+        $_SESSION['user_type'] = 'Consumer';
+        header('Location: consumer_dashboard.php');
+        exit();
+      } else {
+        $error = 'Incorrect password!';
+      }
+    } else {
+      $error = 'Email/username not registered!';
+    }
+    mysqli_stmt_close($stmt);
+  } else {
+    $error = 'Query error: ' . mysqli_error($conn);
+  }
+}
+?>
+
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Consumer Login Page</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#11d411",
+              "background-light": "#f6f8f6",
+              "background-dark": "#102210",
+            },
+            fontFamily: {
+              "display": ["Work Sans"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+<div class="relative flex min-h-screen w-full flex-col bg-background-light dark:bg-background-dark font-display group/design-root overflow-x-hidden" style='font-family: "Work Sans", "Noto Sans", sans-serif;'>
+<div class="absolute inset-0 z-0">
+<div class="absolute inset-0 bg-cover bg-center" data-alt="A vibrant spread of fresh vegetables and fruits on a wooden surface, suggesting farm-to-table freshness." style='background-image: linear-gradient(rgba(16, 34, 16, 0.7) 0%, rgba(16, 34, 16, 0.9) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuD6wfrloTcxG6FRvU2SN9eCZqo5ta7F5HS2-epOtQjYCN1cBAEEWtxpT_zgylMm7kMDH0BajfpBBJ18GROvrMmVn8iqVmRlw_QTngrgp3XA49OVLE-GeR9o4c3kffTEOUVfB8se8iUT50uJRgQsae6M6eNviD8W9G9kIZMHdMcOWzKPAct2aCbXN1kBJ9zlujJfhGOV7Lsj7DsCfq45e6z5ibRhHxJnsiBkD2EoC1omIZLTtntMCb4dbGdDGs3lrP2BDusc1L82Ntk");'></div>
+</div>
+<div class="relative layout-container flex h-full grow flex-col">
+<header class="flex justify-start p-6 sm:p-8">
+<a class="flex items-center gap-2" href="#">
+<span class="material-symbols-outlined text-white text-3xl">eco</span>
+<span class="text-white text-xl font-bold">FarmConnect</span>
+</a>
+</header>
+<main class="flex flex-1 items-center justify-center p-4">
+<div class="layout-content-container flex w-full flex-col max-w-md items-center">
+<div class="w-full rounded-xl bg-white/10 dark:bg-black/20 backdrop-blur-sm border border-white/10 p-6 sm:p-8">
+<div class="flex flex-col gap-6">
+<h1 class="text-white tracking-light text-center text-3xl font-bold leading-tight sm:text-4xl">Welcome Back</h1>
+<form class="flex flex-col gap-4" action="consumer_login.php" method="POST">
+<?php if(!empty($error)): ?>
+  <div class="text-center text-sm text-red-600 pb-2"><?php echo htmlspecialchars($error); ?></div>
+<?php endif; ?>
+<label class="flex flex-col flex-1">
+<p class="text-white/80 text-base font-medium leading-normal pb-2">Email/Username</p>
+<div class="relative flex w-full items-center">
+<span class="material-symbols-outlined absolute left-3 text-white/50">person</span>
+<input name="email" class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-white bg-white/10 focus:outline-0 focus:ring-2 focus:ring-primary border border-white/20 focus:border-primary h-14 placeholder:text-white/50 p-3 pl-11 text-base font-normal leading-normal" placeholder="Enter your email or username" value=""/>
+</div>
+</label>
+<label class="flex flex-col flex-1">
+<p class="text-white/80 text-base font-medium leading-normal pb-2">Password</p>
+<div class="relative flex w-full items-center">
+<span class="material-symbols-outlined absolute left-3 text-white/50">lock</span>
+<input name="password" class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-white bg-white/10 focus:outline-0 focus:ring-2 focus:ring-primary border border-white/20 focus:border-primary h-14 placeholder:text-white/50 p-3 pl-11 text-base font-normal leading-normal" placeholder="Enter your password" type="password" value=""/>
+<div class="absolute right-3 flex items-center justify-center text-white/50 cursor-pointer">
+<span class="material-symbols-outlined">visibility</span>
+</div>
+</div>
+</label>
+<div class="flex justify-end">
+<p class="text-white/80 text-sm font-normal leading-normal underline cursor-pointer hover:text-primary transition-colors">Forgot Password?</p>
+</div>
+<button name="login" type="submit" class="flex w-full cursor-pointer items-center justify-center overflow-hidden rounded-lg h-14 px-5 bg-primary text-black dark:text-background-dark text-base font-bold leading-normal tracking-[0.015em] hover:bg-opacity-90 transition-opacity">
+<span class="truncate">Log In</span>
+</button>
+</form>
+<div class="flex items-center justify-center text-center">
+<p class="text-white/80 text-sm font-normal leading-normal">Don't have an account? <a class="font-bold text-primary underline" href="consumer_registration.php">Consumer Registration</a></p>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</div>
+</body></html>

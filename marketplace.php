@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Browse Crops/Marketplace</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings:
+            'FILL' 0,
+            'wght' 400,
+            'GRAD' 0,
+            'opsz' 24
+        }
+    </style>
+<script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#11d411",
+              "background-light": "#f6f8f6",
+              "background-dark": "#102210",
+              "text-light": "#111811",
+              "text-dark": "#f0f4f0",
+              "subtle-light": "#618961",
+              "subtle-dark": "#a3b8a3",
+              "border-light": "#dbe6db",
+              "border-dark": "#3a4c3a"
+            },
+            fontFamily: {
+              "display": ["Work Sans", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+</head>
+<body class="font-display bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark">
+<div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+<!-- TopNavBar -->
+<header class="sticky top-0 z-50 flex items-center justify-between whitespace-nowrap border-b border-solid border-primary/20 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-sm px-4 md:px-10 lg:px-20 py-3">
+<div class="flex items-center gap-4 text-primary">
+<span class="material-symbols-outlined text-3xl">grass</span>
+<h2 class="text-[#333333] dark:text-white text-xl font-bold leading-tight tracking-[-0.015em]">Digital Farmer</h2>
+</div>
+<div class="hidden md:flex flex-1 justify-center gap-8">
+<div class="flex items-center gap-9">
+<a class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-primary/90" href="index.php">Home</a>
+<a class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-primary/90" href="marketplace.php">Marketplace</a>
+<a class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-primary/90" href="about.php">About Us</a>
+
+</div>
+</div>
+<div class="flex gap-2">
+    <a id="nav-register" href="#" class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-primary/90" aria-haspopup="dialog" aria-controls="signup-modal">
+        <span class="truncate">Register</span>
+    </a>
+    <a id="nav-login" href="#" class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-primary/90" aria-haspopup="dialog" aria-controls="login-modal">
+        <span class="truncate">Login</span>
+    </a>
+</div>
+</header>
+<main class="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+<div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
+<!-- Left Sidebar -->
+<aside class="col-span-1 lg:sticky lg:top-24 h-fit">
+<div class="flex h-full flex-col justify-between rounded-xl bg-white dark:bg-black/20 p-4 border border-border-light dark:border-border-dark">
+<div class="flex flex-col gap-6">
+<div class="flex flex-col gap-3">
+<h1 class="text-base font-medium">Filters</h1>
+<p class="text-sm font-normal text-subtle-light dark:text-subtle-dark">Refine your search</p>
+</div>
+<!-- Categories -->
+<div class="flex flex-col gap-2">
+<p class="text-sm font-medium px-3">Categories</p>
+<div class="flex items-center gap-3 px-3 py-2 rounded-lg bg-primary/20">
+<span class="material-symbols-outlined text-primary">category</span>
+<p class="text-sm font-medium">All Products</p>
+</div>
+<div class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-primary/10 dark:hover:bg-primary/20 cursor-pointer">
+<span class="material-symbols-outlined text-text-light dark:text-text-dark">eco</span>
+<p class="text-sm font-medium">Vegetables</p>
+</div>
+<div class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-primary/10 dark:hover:bg-primary/20 cursor-pointer">
+<span class="material-symbols-outlined text-text-light dark:text-text-dark">ios</span>
+<p class="text-sm font-medium">Fruits</p>
+</div>
+<div class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-primary/10 dark:hover:bg-primary/20 cursor-pointer">
+<span class="material-symbols-outlined text-text-light dark:text-text-dark">grain</span>
+<p class="text-sm font-medium">Grains</p>
+</div>
+<div class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-primary/10 dark:hover:bg-primary/20 cursor-pointer">
+<span class="material-symbols-outlined text-text-light dark:text-text-dark">grass</span>
+<p class="text-sm font-medium">Herbs</p>
+</div>
+</div>
+<!-- Accordions -->
+<div class="flex flex-col">
+<details class="flex flex-col border-t border-border-light dark:border-border-dark py-2 group" open="">
+<summary class="flex cursor-pointer items-center justify-between gap-6 py-2 list-none">
+<p class="text-sm font-medium">Price Range</p>
+<span class="material-symbols-outlined text-text-light dark:text-text-dark group-open:rotate-180 transition-transform">expand_more</span>
+</summary>
+<div class="relative flex w-full flex-col items-start justify-between gap-3 pt-2">
+<div class="flex h-[38px] w-full pt-1.5">
+<div class="flex h-1 w-full rounded-sm bg-border-light dark:bg-border-dark pl-[10%] pr-[30%]">
+<div class="relative">
+<div class="absolute -left-2.5 -top-1.5 flex flex-col items-center gap-1">
+<div class="size-3.5 rounded-full bg-text-light dark:bg-text-dark ring-2 ring-background-light dark:ring-background-dark"></div>
+<p class="text-sm font-normal">$5</p>
+</div>
+</div>
+<div class="h-1 flex-1 rounded-sm bg-primary"></div>
+<div class="relative">
+<div class="absolute -left-2.5 -top-1.5 flex flex-col items-center gap-1">
+<div class="size-3.5 rounded-full bg-text-light dark:bg-text-dark ring-2 ring-background-light dark:ring-background-dark"></div>
+<p class="text-sm font-normal">$30</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</details>
+<details class="flex flex-col border-t border-border-light dark:border-border-dark py-2 group">
+<summary class="flex cursor-pointer items-center justify-between gap-6 py-2 list-none">
+<p class="text-sm font-medium">Rating</p>
+<span class="material-symbols-outlined text-text-light dark:text-text-dark group-open:rotate-180 transition-transform">expand_more</span>
+</summary>
+<div class="flex flex-col gap-2 pt-2 text-subtle-light dark:text-subtle-dark">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-primary">star</span>
+<span class="material-symbols-outlined text-primary">star</span>
+<span class="material-symbols-outlined text-primary">star</span>
+<span class="material-symbols-outlined text-primary">star</span>
+<span class="material-symbols-outlined text-primary">star_half</span>
+<span class="text-sm ml-2">&amp; up</span>
+</div>
+</div>
+</details>
+<details class="flex flex-col border-t border-border-light dark:border-border-dark py-2 group">
+<summary class="flex cursor-pointer items-center justify-between gap-6 py-2 list-none">
+<p class="text-sm font-medium">Farming Practice</p>
+<span class="material-symbols-outlined text-text-light dark:text-text-dark group-open:rotate-180 transition-transform">expand_more</span>
+</summary>
+<div class="space-y-2 pt-2">
+<label class="flex items-center gap-2"><input class="form-radio text-primary focus:ring-primary/50" name="practice" type="radio"/> <span class="text-sm">Organic</span></label>
+<label class="flex items-center gap-2"><input class="form-radio text-primary focus:ring-primary/50" name="practice" type="radio"/> <span class="text-sm">Conventional</span></label>
+</div>
+</details>
+</div>
+</div>
+<div class="flex flex-col gap-2 mt-6">
+<button class="flex w-full cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white dark:text-background-dark text-sm font-bold tracking-[0.015em] hover:bg-primary/90 transition-colors">
+<span class="truncate">Apply Filters</span>
+</button>
+<button class="flex items-center justify-center gap-3 px-3 py-2 hover:bg-primary/10 dark:hover:bg-primary/20 rounded-lg transition-colors">
+<span class="material-symbols-outlined text-sm">restart_alt</span>
+<p class="text-sm font-medium">Reset</p>
+</button>
+</div>
+</div>
+</aside>
+<!-- Main Content -->
+<div class="col-span-1 lg:col-span-3">
+<div class="flex flex-col gap-8">
+<!-- PageHeading -->
+<div class="flex flex-wrap justify-between items-center gap-3">
+<div class="flex flex-col gap-2">
+<p class="text-4xl font-black leading-tight tracking-[-0.033em]">Explore the Harvest</p>
+<p class="text-base font-normal leading-normal text-subtle-light dark:text-subtle-dark">Find fresh produce directly from local farmers.</p>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-sm text-subtle-light dark:text-subtle-dark">Sort by:</span>
+<select class="form-select rounded-lg border-border-light dark:border-border-dark bg-white dark:bg-black/20 focus:border-primary focus:ring-primary/50 text-sm">
+<option>Newest</option>
+<option>Price: Low to High</option>
+<option>Price: High to Low</option>
+<option>Top Rated</option>
+</select>
+</div>
+</div>
+<!-- Product Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+<!-- Product Card 1 -->
+<div class="flex flex-col rounded-xl overflow-hidden bg-white dark:bg-black/20 border border-border-light dark:border-border-dark group transition-shadow hover:shadow-lg">
+<div class="aspect-video bg-cover bg-center" data-alt="Ripe heirloom tomatoes on a vine" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC6ycRCmlCdE_dVix1fzoSJ3OzBZxZ8FYZsTYZLT-I-nEzRwGAMMTOUqNHONUiETgkimk5LaT9xhQht8o_4fpunjtWC-I11kECbVSIVE15N7vPpBP7tHT3l26dUYKm3hCsU09BrahYM1az1tLTd8ahjM6p-TI7Plzxd2zhBpXEcBHACyjAqYgeJrz-Vb9jrYyfV7RvkBDc5Qhe3Jzhj-A3Y6VxRAZz_Pzql3uWiQYyo1kRRh7fNlcR1J1G9jvhgUnxu7TtU42W1Yig')"></div>
+<div class="p-4 flex flex-col gap-3 flex-grow">
+<h3 class="font-bold text-lg">Heirloom Tomatoes</h3>
+<p class="text-sm text-subtle-light dark:text-subtle-dark">From Green Acre Farms</p>
+<div class="flex items-center gap-1 text-primary text-sm">
+<span class="material-symbols-outlined !text-base">star</span>
+<span class="material-symbols-outlined !text-base">star</span>
+<span class="material-symbols-outlined !text-base">star</span>
+<span class="material-symbols-outlined !text-base">star</span>
+<span class="material-symbols-outlined !text-base">star_half</span>
+<span class="text-text-light dark:text-text-dark ml-1">(12)</span>
+</div>
+<p class="text-lg font-semibold mt-auto">$3.49 / lb</p>
+</div>
+<button class="flex w-full items-center justify-center gap-2 bg-primary/20 dark:bg-primary/30 py-3 text-sm font-bold text-primary dark:text-primary transition-colors group-hover:bg-primary group-hover:text-white dark:group-hover:text-background-dark">
+<span class="material-symbols-outlined !text-xl">add_shopping_cart</span> Add to Cart
+                                </button>
+</div>
+<!-- Product Card 2 -->
+<div class="flex flex-col rounded-xl overflow-hidden bg-white dark:bg-black/20 border border-border-light dark:border-border-dark group transition-shadow hover:shadow-lg">
+<div class="aspect-video bg-cover bg-center" data-alt="Fresh organic carrots with green tops" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAhdQsJzcErUQw6o1lNg4zvZeqIY-AL1QPrSQiegSLmdNG0GkA8EXTmuM4ze3zA9s69aLHxmX-7N9ua3Wq_nvCvssFk1zF3Aj2H1queGizs7q67OMFBB7FaJxv0wMRyNDEXEAH_dcrTGLffqR5OC9seTW4G017NOSdHfWQNaefN9o4k67XSQ9rM3rN2y4mHcq7463H8v--z24JvctbzZb4D6bLn_Ps7RJq80wfsw2uGV8eW3B3jOQlTyz2RkTzE4i8J6fUeGSlAB2w')"></div>
+<div class="p-4 flex flex-col gap-3 flex-grow">
+<h3 class="font-bold text-lg">Organic Carrots</h3>
+<p class="text-sm text-subtle-light dark:text-subtle-dark">From Sunnyside Fields</p>
+<div class="flex items-center gap-1 text-primary text-sm">
+<span class="material-symbols-outlined !text-base">star</span>
+<span class="material-symbols-outlined !text-base">star</span>
+<span class="material-symbols-outlined !text-base">star</span>
+<span class="material-symbols-outlined !text-base">star</span>
+<span class="material-symbols-outlined !text-base">star</span>
+<span class="text-text-light dark:text-text-dark ml-1">(25)</span>
+</div>
+<p class="text-lg font-semibold mt-auto">$2.99 / bunch</p>
+</div>
+<button class="flex w-full items-center justify-center gap-2 bg-primary/20 dark:bg-primary/30 py-3 text-sm font-bold text-primary dark:text-primary transition-colors group-hover:bg-primary group-hover:text-white dark:group-hover:text-background-dark">
+<span class="material-symbols-outlined !text-xl">add_shopping_cart</span> Add to Cart
+                                </button>
+</div>
+<!-- Product Card 3 -->
+<div class="flex flex-col rounded-xl overflow-hidden bg-white dark:bg-black/20 border border-border-light dark:border-border-dark group transition-shadow hover:shadow-lg">
+<div class="aspect-video bg-cover bg-center" data-alt="A basket full of fresh strawberries" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCA2IqZMT3w2sPhkhzt7eeuFANfN2ChlisZNrqyCiW8a0TzT6Rt3uvNbZ6icdzoBYe3GUKg2Dsh1noRogb1qvKt8cZQ5JpdrRXO8VTBlw_DCiQT8KRUA65lX1BWEFjDsnYjYKgdgSA99PsirxaX8R4F2zv5D8A6IDQgS9UvDFwgqaWh-ftiKEYzztoCLQg2qN4NvfHLBopZgm-TQlxXD9H9SdX9aDF8J_mgjo3OsnUSjeU_zICUxv3KrsWrKQVig_r7v4IVwRQLV9E')"></div>
+<div class="p-4 flex flex-col gap-3 flex-grow">
+<h3 class="font-bold text-lg">Fresh Strawberries</h3>
+<p class="text-sm text-subtle-light dark:text-subtle-dark">From Berry Best Farm</p>
+<div class="flex items-center gap-1 text-primary text-sm">
+<span class="material-symbols-outlined !text-base">star</span>
+<span class="material-symbols-outlined !text-base">star</span>
+<span class="material-symbols-outlined !text-base">star</span>
+<span class="material-symbols-outlined !text-base">star</span>
+<span class="material-symbols-outlined !text-base">star_half</span>
+<span class="text-text-light dark:text-text-dark ml-1">(8)</span>
+</div>
+<p class="text-lg font-semibold mt-auto">$4.50 / pint</p>
+</div>
+<button class="flex w-full items-center justify-center gap-2 bg-primary/20 dark:bg-primary/30 py-3 text-sm font-bold text-primary dark:text-primary transition-colors group-hover:bg-primary group-hover:text-white dark:group-hover:text-background-dark">
+<span class="material-symbols-outlined !text-xl">add_shopping_cart</span> Add to Cart
+                                </button>
+</div>
+<!-- Product Card 4 -->
+<div class="flex flex-col rounded-xl overflow-hidden bg-white dark:bg-black/20 border border-border-light dark:border-border-dark group transition-shadow hover:shadow-lg">
+<div class="aspect-video bg-cover bg-center" data-alt="A bunch of kale leaves" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBH0HdO4Sh0_azZ10XVEG-uLQ-aW-Iqb4XHnBEWJKjpGIHzpkH5Pu_-LX86ZDvAztaupjrYR3Bg60CBerYtwp7a4U2pJiPeYPwO-c3Ue0rnMbqYGKv2Zt7T374Fuw_NlqNe6SUZ68LUV9bdC7-UkDDzE7tPSQgeYedv31xnwH6Hl2z7-05DhjSrdpq_gaa3gWLs0EXH-CQGa52nTxJ2hJvGCSLeg9JFplTNsOxrPJL92BI-qoapposh1AEPdr22Y78sFlyG4FGU3YI')"></div>
+<div class="p-4 flex flex-col gap-3 flex-grow">
+<h3 class="font-bold text-lg">Lacinato Kale</h3>
+<p class="text-sm text-subtle-light dark:text-subtle-dark">From Green Acre Farms</p>
+<div class="flex items-center gap-1 text-primary text-sm">
+<span class="material-symbols-outlined !text-base">star</span>
+<span class="material-symbols-outlined !text-base">star</span>
+<span class="material-symbols-outlined !text-base">star</span>
+<span class="material-symbols-outlined !text-base">star</span>
+<span class="material-symbols-outlined !text-base text-border-light dark:text-border-dark">star</span>
+<span class="text-text-light dark:text-text-dark ml-1">(15)</span>
+</div>
+<p class="text-lg font-semibold mt-auto">$2.75 / bunch</p>
+</div>
+<button class="flex w-full items-center justify-center gap-2 bg-primary/20 dark:bg-primary/30 py-3 text-sm font-bold text-primary dark:text-primary transition-colors group-hover:bg-primary group-hover:text-white dark:group-hover:text-background-dark">
+<span class="material-symbols-outlined !text-xl">add_shopping_cart</span> Add to Cart
+                                </button>
+</div>
+<!-- Product Card 5 -->
+<div class="flex flex-col rounded-xl overflow-hidden bg-white dark:bg-black/20 border border-border-light dark:border-border-dark group transition-shadow hover:shadow-lg">
+<div class="aspect-video bg-cover bg-center" data-alt="Golden corn on the cob" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAnouBvCelbyUkuiLCEONA8qn0Fk5JszJZjdD45h5MrwzW2jgqUhFNRlo0t2PnJrZtdCMarFGluKUmdoJ3eFa5S2g_DyCToRt_WRbKJwv8apcUd1kkC1pmWeXUPXhoklxLPneSidw1BeL3KKKTe5G7-qAmANX_oBT4KxdBK8ZgXkfaeUbE8STPlrjJmmiDvukrseUFqDkUSF9SQbLy-BR-1cUqnkFaOUeTabWCWyFFVZU5rXCYTXF3iGXNVIJmf0M9IFpPz6_euGJU')"></div>
+<div class="p-4 flex flex-col gap-3 flex-grow">
+<h3 class="font-bold text-lg">Sweet Corn</h3>
+<p class="text-sm text-subtle-light dark:text-subtle-dark">From Sunnyside Fields</p>
+<div class="flex items-center gap-1 text-primary text-sm">
+<span class="material-symbols-outlined !text-base">star</span>
+<span class="material-symbols-outlined !text-base">star</span>
+<span class="material-symbols-outlined !text-base">star</span>
+<span class="material-symbols-outlined !text-base">star</span>
+<span class="material-symbols-outlined !text-base">star_half</span>
+<span class="text-text-light dark:text-text-dark ml-1">(31)</span>
+</div>
+<p class="text-lg font-semibold mt-auto">$0.75 / ear</p>
+</div>
+<button class="flex w-full items-center justify-center gap-2 bg-primary/20 dark:bg-primary/30 py-3 text-sm font-bold text-primary dark:text-primary transition-colors group-hover:bg-primary group-hover:text-white dark:group-hover:text-background-dark">
+<span class="material-symbols-outlined !text-xl">add_shopping_cart</span> Add to Cart
+                                </button>
+</div>
+<!-- Product Card 6 -->
+<div class="flex flex-col rounded-xl overflow-hidden bg-white dark:bg-black/20 border border-border-light dark:border-border-dark group transition-shadow hover:shadow-lg">
+<div class="aspect-video bg-cover bg-center" data-alt="Blueberries in a bowl" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDrrywow0Ivnu3Q_ahGaul7rH90TMEt6q__Qn5hy7YgBoCFBNpLCNZ6K554qNGlAsaV-BkeYyAwSP9mJutCatwUdhY3eVq3cHDRXCkOcF0HF0d1tdIDwyuYRzT8ZJkaVi2Ow2VhcgqZ8Hic_FQdpg4irnPbeigF8gtHIskZvyi-0w0651pvP7bsaCb-Dqx0cj37vSGg1NGutuH3MTd-8ivI8D-gqOz6bwpuo916AZCceDzH005cby1PRfrq_lsJAx5GKVOzMhQ4hE0')"></div>
+<div class="p-4 flex flex-col gap-3 flex-grow">
+<h3 class="font-bold text-lg">Blueberries</h3>
+<p class="text-sm text-subtle-light dark:text-subtle-dark">From Berry Best Farm</p>
+<div class="flex items-center gap-1 text-primary text-sm">
+<span class="material-symbols-outlined !text-base">star</span>
+<span class="material-symbols-outlined !text-base">star</span>
+<span class="material-symbols-outlined !text-base">star</span>
+<span class="material-symbols-outlined !text-base">star</span>
+<span class="material-symbols-outlined !text-base">star</span>
+<span class="text-text-light dark:text-text-dark ml-1">(19)</span>
+</div>
+<p class="text-lg font-semibold mt-auto">$5.00 / pint</p>
+</div>
+<button class="flex w-full items-center justify-center gap-2 bg-primary/20 dark:bg-primary/30 py-3 text-sm font-bold text-primary dark:text-primary transition-colors group-hover:bg-primary group-hover:text-white dark:group-hover:text-background-dark">
+<span class="material-symbols-outlined !text-xl">add_shopping_cart</span> Add to Cart
+                                </button>
+</div>
+</div>
+<!-- Pagination -->
+<div class="flex items-center justify-center gap-2 pt-8">
+<button class="flex items-center justify-center size-10 rounded-lg text-subtle-light dark:text-subtle-dark hover:bg-primary/10 dark:hover:bg-primary/20 hover:text-primary transition-colors">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<button class="flex items-center justify-center size-10 rounded-lg text-sm bg-primary text-white dark:text-background-dark">1</button>
+<button class="flex items-center justify-center size-10 rounded-lg text-sm text-text-light dark:text-text-dark hover:bg-primary/10 dark:hover:bg-primary/20 hover:text-primary transition-colors">2</button>
+<button class="flex items-center justify-center size-10 rounded-lg text-sm text-text-light dark:text-text-dark hover:bg-primary/10 dark:hover:bg-primary/20 hover:text-primary transition-colors">3</button>
+<span class="text-subtle-light dark:text-subtle-dark">...</span>
+<button class="flex items-center justify-center size-10 rounded-lg text-sm text-text-light dark:text-text-dark hover:bg-primary/10 dark:hover:bg-primary/20 hover:text-primary transition-colors">10</button>
+<button class="flex items-center justify-center size-10 rounded-lg text-text-light dark:text-text-dark hover:bg-primary/10 dark:hover:bg-primary/20 hover:text-primary transition-colors">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+</main>
+
+<!-- Signup chooser modal -->
+<div id="signup-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center">
+  <div id="signup-overlay" class="absolute inset-0 bg-black/50 backdrop-blur-sm"></div>
+  <div role="dialog" aria-modal="true" aria-labelledby="signup-modal-title" class="relative z-10 w-full max-w-md mx-4 rounded-lg bg-white dark:bg-gray-900 shadow-xl">
+    <div class="p-4 border-b border-gray-100 dark:border-gray-800 flex justify-between items-center">
+      <h3 id="signup-modal-title" class="text-lg font-semibold text-gray-900 dark:text-white">Sign Up</h3>
+      <button id="signup-close" class="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white" aria-label="Close">✕</button>
+    </div>
+    <div class="p-6">
+      <p class="text-sm text-gray-600 dark:text-gray-300 mb-4">Choose your account type to continue:</p>
+      <div class="flex gap-3 flex-col sm:flex-row">
+        <a href="farmer_registration.php" class="flex-1 inline-flex items-center justify-center rounded-lg px-4 py-3 bg-green-600 text-white font-semibold hover:bg-green-700" id="signup-farmer">Farmer Registration</a>
+        <a href="consumer_registration.php" class="flex-1 inline-flex items-center justify-center rounded-lg px-4 py-3 bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-gray-100 font-semibold hover:bg-gray-200 dark:hover:bg-gray-700" id="signup-consumer">Consumer Registration</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Login chooser modal -->
+<div id="login-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center">
+  <div id="login-overlay" class="absolute inset-0 bg-black/50 backdrop-blur-sm"></div>
+  <div role="dialog" aria-modal="true" aria-labelledby="login-modal-title" class="relative z-10 w-full max-w-md mx-4 rounded-lg bg-white dark:bg-gray-900 shadow-xl">
+    <div class="p-4 border-b border-gray-100 dark:border-gray-800 flex justify-between items-center">
+      <h3 id="login-modal-title" class="text-lg font-semibold text-gray-900 dark:text-white">Log In</h3>
+      <button id="login-close" class="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white" aria-label="Close">✕</button>
+    </div>
+    <div class="p-6">
+      <p class="text-sm text-gray-600 dark:text-gray-300 mb-4">Choose your account type to continue:</p>
+      <div class="flex gap-3 flex-col sm:flex-row">
+        <a href="farmer_login.php" class="flex-1 inline-flex items-center justify-center rounded-lg px-4 py-3 bg-green-600 text-white font-semibold hover:bg-green-700" id="login-farmer">Farmer Login</a>
+        <a href="consumer_login.php" class="flex-1 inline-flex items-center justify-center rounded-lg px-4 py-3 bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-gray-100 font-semibold hover:bg-gray-200 dark:hover:bg-gray-700" id="login-consumer">Consumer Login</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  (function(){
+    const navRegister = document.getElementById('nav-register');
+    const navLogin = document.getElementById('nav-login');
+
+    const modal = document.getElementById('signup-modal');
+    const overlay = document.getElementById('signup-overlay');
+    const closeBtn = document.getElementById('signup-close');
+    const firstAction = document.getElementById('signup-farmer');
+
+    const loginModal = document.getElementById('login-modal');
+    const loginOverlay = document.getElementById('login-overlay');
+    const loginClose = document.getElementById('login-close');
+    const loginFirst = document.getElementById('login-farmer');
+
+    let lastFocus = null;
+
+    function showModal(){
+      lastFocus = document.activeElement;
+      modal && modal.classList.remove('hidden');
+      setTimeout(()=> firstAction && firstAction.focus(), 50);
+      document.addEventListener('keydown', onKey);
+    }
+    function hideModal(){
+      modal && modal.classList.add('hidden');
+      document.removeEventListener('keydown', onKey);
+      try{ lastFocus && lastFocus.focus(); }catch(e){}
+    }
+
+    function showLoginModal(){
+      lastFocus = document.activeElement;
+      modal && modal.classList.add('hidden');
+      loginModal && loginModal.classList.remove('hidden');
+      setTimeout(()=> loginFirst && loginFirst.focus(), 50);
+      document.addEventListener('keydown', onKey);
+    }
+    function hideLoginModal(){
+      loginModal && loginModal.classList.add('hidden');
+      document.removeEventListener('keydown', onKey);
+      try{ lastFocus && lastFocus.focus(); }catch(e){}
+    }
+
+    function onKey(e){
+      if(e.key === 'Escape'){
+        hideModal();
+        hideLoginModal();
+      }
+    }
+
+    navRegister && navRegister.addEventListener('click', function(e){ e.preventDefault(); showModal(); });
+    navLogin && navLogin.addEventListener('click', function(e){ e.preventDefault(); showLoginModal(); });
+
+    closeBtn && closeBtn.addEventListener('click', hideModal);
+    overlay && overlay.addEventListener('click', hideModal);
+
+    loginClose && loginClose.addEventListener('click', hideLoginModal);
+    loginOverlay && loginOverlay.addEventListener('click', hideLoginModal);
+  })();
+</script>
+
+</div>
+</body></html>
