@@ -1,37 +1,4 @@
-<?php
-session_start();
-include 'db.php';
-if(isset($_POST['login'])) {
-  $email = $_POST['email'] ?? '';
-  $password = $_POST['password'] ?? '';
 
-  $query = mysqli_query($conn, "SELECT * FROM farmers WHERE email='$email'");
-  if($query && mysqli_num_rows($query) > 0){
-    $row = mysqli_fetch_assoc($query);
-    if(password_verify($password, $row['password'])){
-      // Set session variables for logged-in user
-      $_SESSION['user_id'] = $row['id'];
-      $_SESSION['user_name'] = $row['fullname'];
-      $_SESSION['user_type'] = 'Farmer';
-
-      header("Location: farmer_dashboard.php");
-      exit();
-    } else {
-      $stored = $row['password'] ?? '';
-      $alg = substr($stored, 0, 4);
-      $len = strlen($stored);
-      $error = "Incorrect password! (debug: alg=" . htmlspecialchars($alg) . " len=" . $len . ")";
-      @file_put_contents(__DIR__ . '/debug_login.log', date('c') . " - login failed for: " . $email . " alg=" . $alg . " len=" . $len . "\n", FILE_APPEND);
-    }
-  } else {
-    if($query === false){
-      $error = 'Query error: ' . mysqli_error($conn);
-    } else {
-      $error = "Email not registered as Farmer!";
-    }
-  }
-}
-?>
 <!DOCTYPE html>
 
 <html class="light" lang="en"><head>
@@ -83,7 +50,7 @@ if(isset($_POST['login'])) {
 <span class="material-symbols-outlined text-3xl">grass</span>
 <h2 class="text-[#333333] dark:text-white text-xl font-bold leading-tight tracking-[-0.015em]">Digital Farmer</h2>
 </div>
-<a href="index.php" class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary/20 text-primary text-sm font-bold leading-normal tracking-[0.015em] hover:bg-primary/30">
+<a href="index.html" class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary/20 text-primary text-sm font-bold leading-normal tracking-[0.015em] hover:bg-primary/30">
 <span class="truncate">Homepage</span>
 </a>
 </header>
@@ -121,7 +88,7 @@ if(isset($_POST['login'])) {
 </form>
 <div class="text-center">
 <p class="text-sm text-gray-600 dark:text-gray-400">
-                            Don't have an account? <a class="font-bold text-primary underline hover:text-primary/80" href="farmer_registration.php">Register here</a>
+                            Don't have an account? <a class="font-bold text-primary underline hover:text-primary/80" href="farmer_registration.html">Register here</a>
 </p>
 </div>
 </div>
@@ -129,4 +96,5 @@ if(isset($_POST['login'])) {
 </div>
 </div>
 </body>
+
 </html>
