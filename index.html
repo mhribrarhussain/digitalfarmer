@@ -56,6 +56,11 @@
 
 </div>
 </div>
+<div class="md:hidden">
+    <button id="mobile-menu-btn" aria-expanded="false" aria-controls="mobile-nav" class="p-2 rounded-md text-primary hover:bg-primary/10">
+        <span class="material-symbols-outlined">menu</span>
+    </button>
+</div>
 <div class="flex gap-2">
     <a id="nav-register" href="#" class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-primary/90" aria-haspopup="dialog" aria-controls="signup-modal">
         <span class="truncate">Register</span>
@@ -65,6 +70,18 @@
     </a>
 </div>
 </header>
+<!-- Mobile nav (small screens) -->
+<nav id="mobile-nav" class="hidden md:hidden bg-white dark:bg-gray-900 border-b border-primary/20">
+    <div class="max-w-6xl mx-auto px-4 py-3">
+        <ul class="flex flex-col gap-2">
+            <li><a href="index.php" class="block px-3 py-2 rounded-md text-base font-medium text-text-light dark:text-text-dark hover:bg-primary/10">Home</a></li>
+            <li><a href="marketplace.php" class="block px-3 py-2 rounded-md text-base font-medium text-text-light dark:text-text-dark hover:bg-primary/10">Marketplace</a></li>
+            <li><a href="about.php" class="block px-3 py-2 rounded-md text-base font-medium text-text-light dark:text-text-dark hover:bg-primary/10">About Us</a></li>
+            <li><a href="#" id="mobile-register" class="block px-3 py-2 rounded-md text-base font-medium text-text-light dark:text-text-dark hover:bg-primary/10" aria-haspopup="dialog" aria-controls="signup-modal">Register</a></li>
+            <li><a href="#" id="mobile-login" class="block px-3 py-2 rounded-md text-base font-medium text-text-light dark:text-text-dark hover:bg-primary/10" aria-haspopup="dialog" aria-controls="login-modal">Login</a></li>
+        </ul>
+    </div>
+</nav>
 <main class="flex flex-col items-center">
 <div class="layout-content-container flex flex-col w-full max-w-6xl px-4">
 <!-- HeroSection -->
@@ -338,6 +355,9 @@
             if(e.key === 'Escape'){
                 hideModal();
                 hideLoginModal();
+                // hide mobile nav if open
+                const mobileNav = document.getElementById('mobile-nav');
+                if(mobileNav) mobileNav.classList.add('hidden');
             }
         }
 
@@ -347,6 +367,36 @@
         // Header nav links
         navRegister && navRegister.addEventListener('click', function(e){ e.preventDefault(); showModal(); });
         navLogin && navLogin.addEventListener('click', function(e){ e.preventDefault(); showLoginModal(); });
+
+        // Mobile menu toggle
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileNav = document.getElementById('mobile-nav');
+        const mobileRegister = document.getElementById('mobile-register');
+        const mobileLogin = document.getElementById('mobile-login');
+
+        function hideMobileNav(){
+            if(mobileNav) mobileNav.classList.add('hidden');
+            if(mobileBtn) mobileBtn.setAttribute('aria-expanded','false');
+        }
+
+        function toggleMobileNav(){
+            if(!mobileNav) return;
+            const isHidden = mobileNav.classList.contains('hidden');
+            if(isHidden){
+                mobileNav.classList.remove('hidden');
+                mobileBtn && mobileBtn.setAttribute('aria-expanded','true');
+            } else {
+                hideMobileNav();
+            }
+        }
+
+        mobileBtn && mobileBtn.addEventListener('click', toggleMobileNav);
+        // close mobile nav when clicking links
+        mobileNav && mobileNav.querySelectorAll('a').forEach(a => a.addEventListener('click', hideMobileNav));
+        // mobile nav register/login should open modals
+        mobileRegister && mobileRegister.addEventListener('click', function(e){ e.preventDefault(); hideMobileNav(); showModal(); });
+        mobileLogin && mobileLogin.addEventListener('click', function(e){ e.preventDefault(); hideMobileNav(); showLoginModal(); });
+
 
         // Signup modal controls
         closeBtn && closeBtn.addEventListener('click', hideModal);
@@ -358,4 +408,3 @@
     })();
 </script>
 </body></html>
-
