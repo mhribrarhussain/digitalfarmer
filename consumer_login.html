@@ -33,18 +33,33 @@
             font-size: 24px;
         }
     </style>
-</head>
-<body>
-<div class="relative flex min-h-screen w-full flex-col bg-background-light dark:bg-background-dark font-display group/design-root overflow-x-hidden" style='font-family: "Work Sans", "Noto Sans", sans-serif;'>
-<div class="absolute inset-0 z-0">
-<div class="absolute inset-0 bg-cover bg-center" data-alt="A vibrant spread of fresh vegetables and fruits on a wooden surface, suggesting farm-to-table freshness." style='background-image: linear-gradient(rgba(16, 34, 16, 0.7) 0%, rgba(16, 34, 16, 0.9) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuD6wfrloTcxG6FRvU2SN9eCZqo5ta7F5HS2-epOtQjYCN1cBAEEWtxpT_zgylMm7kMDH0BajfpBBJ18GROvrMmVn8iqVmRlw_QTngrgp3XA49OVLE-GeR9o4c3kffTEOUVfB8se8iUT50uJRgQsae6M6eNviD8W9G9kIZMHdMcOWzKPAct2aCbXN1kBJ9zlujJfhGOV7Lsj7DsCfq45e6z5ibRhHxJnsiBkD2EoC1omIZLTtntMCb4dbGdDGs3lrP2BDusc1L82Ntk");'></div>
+<!-- TopNavBar -->
+<header class="sticky top-0 z-50 flex items-center justify-between whitespace-nowrap border-b border-solid border-primary/20 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-sm px-4 md:px-10 lg:px-20 py-3">
+<div class="flex items-center gap-4 text-primary">
+<span class="material-symbols-outlined text-3xl">grass</span>
+<h2 class="text-[#333333] dark:text-white text-xl font-bold leading-tight tracking-[-0.015em]">Digital Farmer</h2>
 </div>
-<div class="relative layout-container flex h-full grow flex-col">
-<header class="flex justify-start p-6 sm:p-8">
-<a class="flex items-center gap-2" href="index.html">
-<span class="material-symbols-outlined text-white text-3xl">eco</span>
-<span class="text-white text-xl font-bold">FarmConnect</span>
-</a>
+<div class="hidden md:flex flex-1 justify-center gap-8">
+<div class="flex items-center gap-9">
+<a class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-primary/90" href="index.html">Home</a>
+<a class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-primary/90" href="marketplace.html">Marketplace</a>
+<a class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-primary/90" href="about.html">About Us</a>
+
+</div>
+</div>
+<div class="md:hidden">
+    <button id="mobile-menu-btn" aria-expanded="false" aria-controls="mobile-nav" class="p-2 rounded-md text-primary hover:bg-primary/10">
+        <span class="material-symbols-outlined">menu</span>
+    </button>
+</div>
+<div class="hidden md:flex gap-2">
+    <a id="nav-register" href="#" class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-primary/90" aria-haspopup="dialog" aria-controls="signup-modal">
+        <span class="truncate">Register</span>
+    </a>
+    <a id="nav-login" href="#" class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-primary/90" aria-haspopup="dialog" aria-controls="login-modal">
+        <span class="truncate">Login</span>
+    </a>
+</div>
 </header>
 <main class="flex flex-1 items-center justify-center p-4">
 <div class="layout-content-container flex w-full flex-col max-w-md items-center">
@@ -90,3 +105,4 @@
 </div>
 
 </body></html>
+
