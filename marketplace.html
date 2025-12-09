@@ -58,15 +58,32 @@
 
 </div>
 </div>
-<div class="flex gap-2">
-    <a id="nav-register" href="#" class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-primary/90" aria-haspopup="dialog" aria-controls="signup-modal">
-        <span class="truncate">Register</span>
-    </a>
-    <a id="nav-login" href="#" class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-primary/90" aria-haspopup="dialog" aria-controls="login-modal">
-        <span class="truncate">Login</span>
-    </a>
+<div class="md:hidden">
+  <button id="mobile-menu-btn" aria-expanded="false" aria-controls="mobile-nav" class="p-2 rounded-md text-primary hover:bg-primary/10">
+    <span class="material-symbols-outlined">menu</span>
+  </button>
+</div>
+<div class="hidden md:flex gap-2">
+  <a id="nav-register" href="#" class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-primary/90" aria-haspopup="dialog" aria-controls="signup-modal">
+    <span class="truncate">Register</span>
+  </a>
+  <a id="nav-login" href="#" class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-primary/90" aria-haspopup="dialog" aria-controls="login-modal">
+    <span class="truncate">Login</span>
+  </a>
 </div>
 </header>
+<!-- Mobile nav (small screens) -->
+<nav id="mobile-nav" class="hidden md:hidden bg-white dark:bg-gray-900 border-b border-primary/20">
+  <div class="max-w-7xl mx-auto px-4 py-3">
+    <ul class="flex flex-col gap-2">
+      <li><a href="index.html" class="block px-3 py-2 rounded-md text-base font-medium text-text-light dark:text-text-dark hover:bg-primary/10">Home</a></li>
+      <li><a href="marketplace.html" class="block px-3 py-2 rounded-md text-base font-medium text-text-light dark:text-text-dark hover:bg-primary/10">Marketplace</a></li>
+      <li><a href="about.html" class="block px-3 py-2 rounded-md text-base font-medium text-text-light dark:text-text-dark hover:bg-primary/10">About Us</a></li>
+      <li><a href="#" id="mobile-register" class="block px-3 py-2 rounded-md text-base font-medium text-text-light dark:text-text-dark hover:bg-primary/10" aria-haspopup="dialog" aria-controls="signup-modal">Register</a></li>
+      <li><a href="#" id="mobile-login" class="block px-3 py-2 rounded-md text-base font-medium text-text-light dark:text-text-dark hover:bg-primary/10" aria-haspopup="dialog" aria-controls="login-modal">Login</a></li>
+    </ul>
+  </div>
+</nav>
 <main class="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
 <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
 <!-- Left Sidebar -->
@@ -340,8 +357,8 @@
     <div class="p-6">
       <p class="text-sm text-gray-600 dark:text-gray-300 mb-4">Choose your account type to continue:</p>
       <div class="flex gap-3 flex-col sm:flex-row">
-        <a href="farmer_registration.php" class="flex-1 inline-flex items-center justify-center rounded-lg px-4 py-3 bg-green-600 text-white font-semibold hover:bg-green-700" id="signup-farmer">Farmer Registration</a>
-        <a href="consumer_registration.php" class="flex-1 inline-flex items-center justify-center rounded-lg px-4 py-3 bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-gray-100 font-semibold hover:bg-gray-200 dark:hover:bg-gray-700" id="signup-consumer">Consumer Registration</a>
+        <a href="farmer_registration.html" class="flex-1 inline-flex items-center justify-center rounded-lg px-4 py-3 bg-green-600 text-white font-semibold hover:bg-green-700" id="signup-farmer">Farmer Registration</a>
+        <a href="consumer_registration.html" class="flex-1 inline-flex items-center justify-center rounded-lg px-4 py-3 bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-gray-100 font-semibold hover:bg-gray-200 dark:hover:bg-gray-700" id="signup-consumer">Consumer Registration</a>
       </div>
     </div>
   </div>
@@ -358,8 +375,8 @@
     <div class="p-6">
       <p class="text-sm text-gray-600 dark:text-gray-300 mb-4">Choose your account type to continue:</p>
       <div class="flex gap-3 flex-col sm:flex-row">
-        <a href="farmer_login.php" class="flex-1 inline-flex items-center justify-center rounded-lg px-4 py-3 bg-green-600 text-white font-semibold hover:bg-green-700" id="login-farmer">Farmer Login</a>
-        <a href="consumer_login.php" class="flex-1 inline-flex items-center justify-center rounded-lg px-4 py-3 bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-gray-100 font-semibold hover:bg-gray-200 dark:hover:bg-gray-700" id="login-consumer">Consumer Login</a>
+        <a href="farmer_login.html" class="flex-1 inline-flex items-center justify-center rounded-lg px-4 py-3 bg-green-600 text-white font-semibold hover:bg-green-700" id="login-farmer">Farmer Login</a>
+        <a href="consumer_login.html" class="flex-1 inline-flex items-center justify-center rounded-lg px-4 py-3 bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-gray-100 font-semibold hover:bg-gray-200 dark:hover:bg-gray-700" id="login-consumer">Consumer Login</a>
       </div>
     </div>
   </div>
@@ -411,11 +428,44 @@
       if(e.key === 'Escape'){
         hideModal();
         hideLoginModal();
+        // also hide mobile nav if open
+        const mobileNav = document.getElementById('mobile-nav');
+        if(mobileNav) mobileNav.classList.add('hidden');
       }
     }
 
     navRegister && navRegister.addEventListener('click', function(e){ e.preventDefault(); showModal(); });
     navLogin && navLogin.addEventListener('click', function(e){ e.preventDefault(); showLoginModal(); });
+
+    // Mobile menu toggle
+    const mobileBtn = document.getElementById('mobile-menu-btn');
+    const mobileNav = document.getElementById('mobile-nav');
+    const mobileRegister = document.getElementById('mobile-register');
+    const mobileLogin = document.getElementById('mobile-login');
+
+    function hideMobileNav(){
+      if(mobileNav) mobileNav.classList.add('hidden');
+      if(mobileBtn) mobileBtn.setAttribute('aria-expanded','false');
+    }
+
+    function toggleMobileNav(){
+      if(!mobileNav) return;
+      const isHidden = mobileNav.classList.contains('hidden');
+      if(isHidden){
+        mobileNav.classList.remove('hidden');
+        mobileBtn && mobileBtn.setAttribute('aria-expanded','true');
+      } else {
+        hideMobileNav();
+      }
+    }
+
+    mobileBtn && mobileBtn.addEventListener('click', toggleMobileNav);
+    mobileNav && mobileNav.querySelectorAll('a').forEach(a => a.addEventListener('click', hideMobileNav));
+    // wire mobile register/login to open modals
+    const mobileRegisterBtn = document.getElementById('mobile-register');
+    const mobileLoginBtn = document.getElementById('mobile-login');
+    mobileRegisterBtn && mobileRegisterBtn.addEventListener('click', function(e){ e.preventDefault(); hideMobileNav(); showModal(); });
+    mobileLoginBtn && mobileLoginBtn.addEventListener('click', function(e){ e.preventDefault(); hideMobileNav(); showLoginModal(); });
 
     closeBtn && closeBtn.addEventListener('click', hideModal);
     overlay && overlay.addEventListener('click', hideModal);
@@ -427,4 +477,3 @@
 
 </div>
 </body></html>
-
